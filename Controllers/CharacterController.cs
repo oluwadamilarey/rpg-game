@@ -10,13 +10,16 @@ namespace rpg_game.Controllers
     {
         private static List<Character> characters = new List<Character>{ // Defining List of Characters.
             new Character(),
-            new Character { Name = "Derin"}
+            new Character { Id = 1, Name = "Juwon"}
         }; 
 
+        [Route("GetAll")]
         public IActionResult Get(){ // get request for returning a list of characters
             return Ok(characters); // Remember Ok method refefrs to hdefining the status code for operation which in this case case is status 200 for success
         }
 
-        pyblic I
+        public IActionResult GetSingle(int id){
+            return Ok(characters.FirstOrDefault(c => c.id));
+        }
     }
 }
