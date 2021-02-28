@@ -19,7 +19,7 @@ namespace rpg_game.Controllers
         }
 
         public IActionResult GetSingle(int id){
-            return Ok(characters.FirstOrDefault(c => c.id));
+            return Ok(characters.FirstOrDefault(c => c.id == id));
         }
     }
-}
+}  
