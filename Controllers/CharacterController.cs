@@ -16,16 +16,18 @@ namespace rpg_game.Controllers
 
         [Route("GetAll")]
         public IActionResult Get(){ // get request for returning a list of characters
-            return Ok(characters); // Remember Ok method refefrs to hdefining the status code for operation which in this case case is status 200 for success
+            return Ok(characters); // Remember Ok method refers to defining the status code for operation which in this case case is status 200 for success
         }
 
         [HttpGet("{id}")] // parameter for routing, the parameter for the route has to match the nname for the fuction parameter.
         public IActionResult GetSingle(int id){
             return Ok(characters.FirstOrDefault(c => c.id == id));
         }
-
+        
+        [HttpPost]
         public IActionResult AddCharacter(Character newCharacter){
-            
+            characters.Add(newCharacter);
+            return Ok(characters);
         }
     }
 }
