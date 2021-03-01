@@ -2,6 +2,7 @@ using rpg_game.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Linq;
+using rpg_game.Services.CharacterService;
 
 namespace rpg_game.Controllers
 {
@@ -13,6 +14,12 @@ namespace rpg_game.Controllers
             new Character(),
             new Character { id = 1, Name = "Juwon"}
         }; 
+
+        private readOnly ICharacterService _characterService;// raedonly means it can only be assigned in the contructor.
+
+        public CharacterController(ICharacterService chracterService){ //this is class constructor
+
+        }
 
         [Route("GetAll")]
         public IActionResult Get(){ // get request for returning a list of characters
