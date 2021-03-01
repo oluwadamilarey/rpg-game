@@ -11,16 +11,16 @@ namespace rpg_game.Services.CharacterService
             new Character { id = 1, Name = "Juwon"}
         };
 
-        public List<Character> AddCharacter(){
+        public List<Character> AddCharacter(Character newCharacter){
             characters.Add(newCharacter);
-            return Ok(characters);
+            return characters;
         }
 
         public List<Character> GetAllCharacters(){
-            return Ok(characters);
+            return characters;
         }
-        public CharacterService GetCharacterById(int Id){
-            return Ok(characters.FirstOrDefault(c => c.id == id));
+        public Character GetCharacterById(int id){
+            return characters.FirstOrDefault(c => c.id == id);
         }
-    }
+    } 
 } 

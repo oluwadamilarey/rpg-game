@@ -10,7 +10,7 @@ namespace rpg_game.Controllers
     [Route("[controller]")]
     public class CharacterController: ControllerBase
     {
-        private readOnly ICharacterService _characterService;// raedonly means it can only be assigned in the contructor.
+        private readonly ICharacterService _characterService;// raedonly means it can only be assigned in the contructor.
 
         public CharacterController(ICharacterService characterService){ //this is class constructor
             _characterService = characterService;
@@ -23,12 +23,12 @@ namespace rpg_game.Controllers
 
         [HttpGet("{id}")] // parameter for routing, the parameter for the route has to match the nname for the fuction parameter.
         public IActionResult GetSingle(int id){
-            return Ok(_characters.GetCharacterById());
+            return Ok(_characterService.GetCharacterById(id));
         }
         
         [HttpPost]
-        public IActionResult AddCharacter(Character newCharacter){
-            return Ok(_characters.AddNewCharacter(newCharacter));
+        public IActionResult AddCharacter(Character newCharacter){ 
+            return Ok(_characterService.AddCharacter(newCharacter));
         }
     }
 }
