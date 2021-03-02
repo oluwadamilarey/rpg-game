@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Linq;
 using rpg_game.Services.CharacterService;
+using System.Threading.Tasks;
 
 namespace rpg_game.Controllers
 {
