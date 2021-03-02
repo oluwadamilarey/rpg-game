@@ -17,17 +17,17 @@ namespace rpg_game.Controllers
         }
 
         [Route("GetAll")]
-        public IActionResult Get(){ // get request for returning a list of characters
+        public async Task<IActionResult> Get(){ // get request for returning a list of characters
             return Ok(_characterService.GetAllCharacters()); // Remember Ok method refers to defining the status code for operation which in this case case is status 200 for success
         }
 
         [HttpGet("{id}")] // parameter for routing, the parameter for the route has to match the nname for the fuction parameter.
-        public IActionResult GetSingle(int id){
+        public async Task<IActionResult> GetSingle(int id){
             return Ok(_characterService.GetCharacterById(id));
         }
         
         [HttpPost]
-        public IActionResult AddCharacter(Character newCharacter){ 
+        public async Task<IActionResult> AddCharacter(Character newCharacter){ 
             return Ok(_characterService.AddCharacter(newCharacter));
         }
     }
