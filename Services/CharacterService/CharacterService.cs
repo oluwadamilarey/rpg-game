@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using rpg_game.Models;
 using System.Linq;
 using System.Threading.Tasks;
+using rpg_game.Dtos.Character;
 
 namespace rpg_game.Services.CharacterService
 {
@@ -12,21 +13,21 @@ namespace rpg_game.Services.CharacterService
             new Character { id = 1, Name = "Juwon"}
         };
 
-        public async Task<ServiceResponse<List<Character>>> AddCharacter(Character newCharacter){
-            ServiceResponse<List<Character>> serviceResponse = new ServiceResponse<List<Character>>();
+        public async Task<ServiceResponse<List<GetCharacterDto>>> AddCharacter(AddCharacterDto newCharacter){
+            ServiceResponse<List<GetCharacterDto>> serviceResponse = new ServiceResponse<List<GetCharacterDto>>();
             characters.Add(newCharacter);
             serviceResponse.Data = characters;
             return serviceResponse;
         }
 
-        public async Task<ServiceResponse<List<Character>>> GetAllCharacters(){
-            ServiceResponse<List<Character>> serviceResponse = new ServiceResponse<List<Character>>();
+        public async Task<ServiceResponse<List<GetCharacterDto>>> GetAllCharacters(){
+            ServiceResponse<List<GetCharacterDto>> serviceResponse = new ServiceResponse<List<GetCharacterDto>>();
             serviceResponse.Data = characters;
             return serviceResponse;
         }
         
-        public async Task<ServiceResponse<Character>> GetCharacterById(int id){
-            ServiceResponse<Character> serviceResponse = new ServiceResponse<Character>();
+        public async Task<ServiceResponse<GetCharacterDto>> GetCharacterById(int id){
+            ServiceResponse<GetCharacterDto> serviceResponse = new ServiceResponse<GetCharacterDto>();
             serviceResponse.Data = characters.FirstOrDefault(c => c.id == id);
             return serviceResponse;
         }
