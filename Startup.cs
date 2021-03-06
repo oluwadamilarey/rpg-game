@@ -29,6 +29,7 @@ namespace rpg_game
         {
 
             services.AddControllers();
+            service
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "rpg_game", Version = "v1" });
