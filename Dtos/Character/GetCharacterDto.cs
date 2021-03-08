@@ -1,6 +1,6 @@
 using rpg_game.Models;
 
-namespace rpg_game.Services.CharacterService.Dtos.Character
+namespace rpg_game.Dtos.Character
 {
     public class GetCharacterDto
     {

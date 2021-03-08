@@ -1,7 +1,7 @@
 using rpg_game.Models;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using rpg_game.Dtos.Chracter; 
+using rpg_game.Dtos.Character; 
 
 namespace rpg_game.Services.CharacterService
 {

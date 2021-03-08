@@ -3,6 +3,7 @@ using rpg_game.Models;
 using System.Linq;
 using System.Threading.Tasks;
 using rpg_game.Dtos.Character;
+using AutoMapper;
 
 namespace rpg_game.Services.CharacterService
 {
@@ -16,7 +17,7 @@ namespace rpg_game.Services.CharacterService
         private readonly Imapper _mapper;
 
         public CharacterService(IMapper mapper){
-            _mapper = mapper
+            _mapper = mapper;
         }
 
         public async Task<ServiceResponse<List<GetCharacterDto>>> AddCharacter(AddCharacterDto newCharacter){
@@ -28,7 +29,7 @@ namespace rpg_game.Services.CharacterService
 
         public async Task<ServiceResponse<List<GetCharacterDto>>> GetAllCharacters(){
             ServiceResponse<List<GetCharacterDto>> serviceResponse = new ServiceResponse<List<GetCharacterDto>>();
-            serviceResponse.Data = characters;
+            serviceResponse.Data = (characters.Select(c => _mapper.Map<GetCharacterDto>(c))).ToList();;
             return serviceResponse;
         }
         
