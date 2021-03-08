@@ -31,5 +31,5 @@ namespace rpg_game.Controllers
         public async Task<IActionResult> AddCharacter(AddCharacterDto newCharacter){ 
             return Ok(await _characterService.AddCharacter(newCharacter));
         }
-    }
+    } 
 }

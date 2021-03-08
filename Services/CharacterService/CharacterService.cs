@@ -13,6 +13,12 @@ namespace rpg_game.Services.CharacterService
             new Character { id = 1, Name = "Juwon"}
         };
 
+        private readonly Imapper _mapper;
+
+        public CharacterService(IMapper mapper){
+            _mapper = mapper
+        }
+
         public async Task<ServiceResponse<List<GetCharacterDto>>> AddCharacter(AddCharacterDto newCharacter){
             ServiceResponse<List<GetCharacterDto>> serviceResponse = new ServiceResponse<List<GetCharacterDto>>();
             characters.Add(newCharacter);
